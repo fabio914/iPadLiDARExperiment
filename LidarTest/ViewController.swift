@@ -22,6 +22,10 @@ final class ViewController: UIViewController {
 
     var shouldCaptureNextFrame = false
 
+    override var prefersStatusBarHidden: Bool {
+        true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
