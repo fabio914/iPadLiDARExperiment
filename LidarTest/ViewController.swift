@@ -58,6 +58,7 @@ final class ViewController: UIViewController {
     }
 
     @IBAction func captureAction(_ sender: Any) {
+        parentDebugNodes.isHidden = true
         shouldCaptureNextFrame = true
     }
 }
@@ -168,6 +169,8 @@ extension ViewController: ARSessionDelegate, ARSCNViewDelegate {
                 node.geometry?.materials.first?.diffuse.contents = UIColor(y: luma, cb: cb, cr: cr)
             }
         }
+
+        parentDebugNodes.isHidden = false
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
@@ -190,6 +193,7 @@ extension ViewController {
 
     func setupScene() {
         scene.rootNode.addChildNode(parentDebugNodes)
+        parentDebugNodes.isHidden = true
 
         let sizeGeomPredictions = 0.005
 
